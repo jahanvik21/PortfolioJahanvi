@@ -1,0 +1,332 @@
+/* Custom Base Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0d0d0d;
+    background-image: radial-gradient(circle at top, rgba(109, 40, 217, 0.1), transparent 30%);
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+#main-content {
+    opacity: 1;
+    width: 100%;
+    max-width: 100vw;
+}
+
+/* Responsive container */
+.container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+
+/* --- Header Styles --- */
+#header.scrolled {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-link {
+    position: relative;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: #a855f7;
+    transition: width 0.3s;
+}
+.nav-link:hover {
+    color: #c084fc;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* --- Hero Section --- */
+#hero {
+    background: transparent;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 100vw;
+    padding: 2rem 0;
+}
+
+.hero-heading .char {
+    transform: translateY(115%);
+    transition: transform .5s;
+}
+
+.text-purple {
+    color: #c084fc;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.software-icon {
+    position: absolute;
+    width: 15%;
+    max-width: 80px;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    z-index: 20;
+    animation: float 6s ease-in-out infinite;
+}
+
+.software-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive icon positioning */
+.icon-pr { top: 25%; left: -5%; animation-delay: -1s; }
+.icon-3d { bottom: 5%; left: 0%; animation-delay: -2s; }
+.icon-ai { top: 25%; right: -5%; animation-delay: -3s; }
+.icon-ps { bottom: 5%; right: 0%; animation-delay: -4s; }
+
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* --- On-Scroll Reveal Animation --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- Work Section --- */
+.tab-btn {
+    padding: 10px 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: #9ca3af;
+    background-color: transparent;
+    border: 2px solid #374151;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    color: white;
+    background-color: white;
+    color: black;
+    border-color: white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.project-gallery {
+    display: none;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+.project-gallery.active {
+    display: grid;
+}
+
+.project-item {
+    background-color: #000000;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    cursor: pointer;
+    height: 250px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #27272a;
+    transition: border-color 0.3s, transform 0.3s;
+    width: 100%;
+}
+
+.project-item:hover {
+    border-color: #a855f7;
+    transform: translateY(-5px);
+}
+
+.project-item.is-broken::before {
+    content: 'Image not found';
+    font-family: 'Poppins', sans-serif;
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.project-item img,
+.project-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.project-item:hover img,
+.project-item:hover video {
+    transform: scale(1.05);
+}
+
+/* --- Lightbox --- */
+#lightbox.active {
+    display: flex;
+}
+
+#lightbox-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#lightbox-content img,
+#lightbox-content video {
+    width: 100%;
+    height: 100%;
+    max-width: 95vw;
+    max-height: 95vh;
+    object-fit: contain;
+}
+
+#lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+/* --- Lenis Smooth Scroll Styles --- */
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden !important;
+}
+
+/* --- Responsive Media Queries --- */
+/* Mobile (320px - 767px) */
+@media (max-width: 767px) {
+    #hero {
+        padding-top: 5rem;
+        min-height: auto;
+    }
+    
+    .hero-heading {
+        font-size: 2.5rem !important;
+        text-align: center;
+    }
+    
+    .software-icon {
+        width: 18%;
+        max-width: 60px;
+    }
+    
+    .icon-pr { top: 15%; left: -2%; }
+    .icon-3d { bottom: 10%; left: 2%; }
+    .icon-ai { top: 15%; right: -2%; }
+    .icon-ps { bottom: 10%; right: 2%; }
+    
+    .project-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .tab-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    #lightbox-content img,
+    #lightbox-content video {
+        max-width: 100vw;
+        max-height: 80vh;
+    }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .project-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .software-icon {
+        width: 15%;
+        max-width: 70px;
+    }
+    
+    .icon-pr { top: 20%; left: -3%; }
+    .icon-3d { bottom: 8%; left: 1%; }
+    .icon-ai { top: 20%; right: -3%; }
+    .icon-ps { bottom: 8%; right: 1%; }
+}
+
+/* Desktop (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .project-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+    .project-gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .container {
+        padding: 0 2rem;
+    }
+    
+    #hero {
+        padding: 0 2rem;
+    }
+}
+
+/* Extra Large Desktop (1920px+) */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1800px;
+        margin: 0 auto;
+    }
+}
